@@ -38,7 +38,7 @@ AdaptationPolicy 01 {
     }
 }
 ```
-# How to Install?
+# How to Use?
 1. Downloand and install Eclipse and Xtext 2.23.0
 2. Open Eclipse and create a new Xtext project
 3. Use the following settings:
