@@ -144,6 +144,7 @@ protected String setUpLocationService()
 				            long rem = 100 - per;
 				            percentageLabel = String.valueOf(level);
 				            timeRunning = setUpLocationService();
+				            createLocationRequest();
 				            Log.i("Running in Foreground: ", String.valueOf(UPDATE_INTERVAL_IN_MILLISECONDS));
 				            onBatteryLevelChanged();
 				            if (mGoogleApiClient.isConnected() && global_button) {
@@ -151,4 +152,3 @@ protected String setUpLocationService()
 				            }
 				        }
 				    };
-
