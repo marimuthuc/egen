@@ -1,7 +1,10 @@
 # eGEN
-A tool to specify energy-aware self-adaptive location-sensing strategies
+A tool to specify energy-aware self-adaptive location-sensing strategies of smartphone applications.
 # eGEN Overview
-Add Diagram
+*e*GEN is developed using *Xtext* and *Xtend* as an Eclipse plugin. *e*GEN is targeted for *Domain Analyst* and *Developer*. As shown in Figure, the use of \textit{e}GEN consists of seven steps. 
+![Image of eGEN Eco-system](https://github.com/marimuthuc/egen/blob/main/egen-eco-system.png)
+*e*GEN is designed to give domain analysts options to assign values for *critical battery level, and sensing-interval* based on the application requirements. Further, the code generator of *e*GEN generates the Java code for developers that could be added to the existing Android repositories to make them battery-aware.
+
 # Language Description
 Language Element | Category | Description | Allowed Values
 ------------ | ------------- | -------------- | ------------
