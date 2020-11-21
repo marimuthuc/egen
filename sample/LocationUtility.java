@@ -49,6 +49,16 @@ public static String getREQUESTING_LOCATION_UPDATES_KEY(){
     public void createLocationRequest()
     {
         mLocationRequest = new LocationRequest();
+        if(timeRunning == null)
+        	{
+            	mLocationRequest.setInterval(UPDATE_INTERVAL_IN_MILLISECONDS);
+                Log.i("String:",String.valueOf(UPDATE_INTERVAL_IN_MILLISECONDS));
+            }
+        else
+            {
+                mLocationRequest.setInterval(Long.parseLong(timeRunning));
+                Log.i("String:",timeRunning);
+            }
         mLocationRequest.setInterval(UPDATE_INTERVAL_IN_MILLISECONDS/2);
         Log.i("String:",String.valueOf(UPDATE_INTERVAL_IN_MILLISECONDS));
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
@@ -226,4 +236,3 @@ public static String getREQUESTING_LOCATION_UPDATES_KEY(){
     {
         return super.moveTaskToBack(setUpIntervalObject.runInBackground);
     }
-
