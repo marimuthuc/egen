@@ -49,7 +49,7 @@ AdaptationPolicy 01 {
 4. Open org.adaptiveframework.toolsupport.Dsl\src\org\adaptiveframework\toolsupport\Dsl.xtext , erase its entire contents and enter the contents of *Dsl.xtext* file.
 5. Right click *Dsl.xtext* -> Run As -> Generate Xtext Artifacts
 6. Right click *GenerateDsl.mwe2* -> Run As -> MWE2 Workflow
-7. Open org.adaptiveframework.toolsupport.Dsl\xtend-gen\org\adaptiveframework\toolsupport\generator\DslGenerator.java, erase the contents and enter the contents of *DslGenerator.xtend* file
+7. Open org.adaptiveframework.toolsupport.Dsl\xtend-gen\org\adaptiveframework\toolsupport\generator\DslGenerator.xtend, erase the contents and enter the contents of *DslGenerator.xtend* file
 8. Right click *org.adaptiveframework.toolsupport.Dsl* -> Run As -> Eclipse Application
 9. You will be redirected to a new Eclipse window
 10. In a new Eclipse instance, create a new *General* project and create a new file with *.egen* extension to write adaptation policy
