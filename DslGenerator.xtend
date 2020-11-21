@@ -429,6 +429,7 @@ class DslGenerator extends AbstractGenerator {
 				            long rem = 100 - per;
 				            percentageLabel = String.valueOf(level);
 				            timeRunning = setUpLocationService();
+				            createLocationRequest();
 				            Log.i("Running in Foreground: ", String.valueOf(UPDATE_INTERVAL_IN_MILLISECONDS));
 				            onBatteryLevelChanged();
 				            if (mGoogleApiClient.isConnected() && global_button) {
@@ -491,6 +492,16 @@ class DslGenerator extends AbstractGenerator {
 				    public void createLocationRequest()
 				    {
 				        mLocationRequest = new LocationRequest();
+				        if(timeRunning == null)
+				        	{
+				            	mLocationRequest.setInterval(UPDATE_INTERVAL_IN_MILLISECONDS);
+				                Log.i("String:",String.valueOf(UPDATE_INTERVAL_IN_MILLISECONDS));
+				            }
+				        else
+				            {
+				                mLocationRequest.setInterval(Long.parseLong(timeRunning));
+				                Log.i("String:",timeRunning);
+				            }
 				        mLocationRequest.setInterval(UPDATE_INTERVAL_IN_MILLISECONDS/2);
 				        Log.i("String:",String.valueOf(UPDATE_INTERVAL_IN_MILLISECONDS));
 				        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
@@ -672,4 +683,3 @@ class DslGenerator extends AbstractGenerator {
 		)
 	}
 }
-
