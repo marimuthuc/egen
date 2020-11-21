@@ -1,5 +1,5 @@
 # eGEN
-A tool to specify energy-aware self-adaptive location-sensing strategies of smartphone applications.
+A tool to specify energy-aware self-adaptive location-sensing strategies of smartphone applications. It contains a textual domain-specific modeling language and code generator that covers the domain-specific concepts of location-based applications.
 # eGEN Overview
 *e*GEN is developed using *Xtext* and *Xtend* as an Eclipse plugin. *e*GEN is targeted for *Domain Analyst* and *Developer*. As shown in Figure, the use of \textit{e}GEN consists of seven steps. 
 ![Image of eGEN Eco-system](https://github.com/marimuthuc/egen/blob/main/egen-eco-system.png)
