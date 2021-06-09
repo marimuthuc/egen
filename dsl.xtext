@@ -9,22 +9,23 @@ AdaptationPolicy:
     'AdaptationPolicy' ivalue=MYINT_T '{' 'Condition' '{' Situation1 = Context 'AND' value=(Situation2)
 ;
 Situation2:
-    Block = Situation3 '}' 'then' 'Adaptation' '{' FeatureBlock1 = Features 'AND' value=(FeatureBlock2)  '}' '}'
+    Block = Situation3 '}' 'then' 'Adaptation' '{' FeatureBlock1 = Features 'AND' value=(Features)  '}' '}'
 ;
 Situation3:
     Context = Context 'AND' value=(Situation4)
 ;
 Situation4:
+    Context = Context 'AND' value=(Situation5)
+;
+Situation5:
     Context = Context 'AND' value=(Context)
 ;
-FeatureBlock2:
-    Feature2 = Features 'AND' value=(Features)
-;
+
 Context:
     BatteryState | BatteryLevel | AppState | Threshold_Medium | Threshold_High
 ;
 Features:
-    SensingInterval | Decreasing_Factor
+    SensingInterval | Decreasing_Factor | BatteryAwareFunction
 ;
 BatteryState:
     'BatteryState' '=' value=('Charging' | 'Discharging')
@@ -46,5 +47,8 @@ SensingInterval:
 ;
 Decreasing_Factor:
     'Decreasing_Factor' '=' ivalue=MYINT_T
+;
+BatteryAwareFunction:
+    'BatteryAwareFunction' '=' value=('Exponential' | 'Linear')
 ;
 terminal MYINT_T returns ecore::EInt: '-'?INT;
