@@ -15,7 +15,6 @@ Threshold_High | Context | used to assign High value for BatteryLevel | Any nume
 Threshold_Medium | Context | used to assign Medium value for BatteryLevel | Any numerical value
 SensingInterval | Feature | refers to the time difference between two subsequent location-sensing requests | Numerical value in milliseconds
 DecreasingFactor | Feature | refers to the numerical value that will be used in BatteryAwareFunction | Any numerical value
-BatteryAware Function | Feature | refers to the type of change (exponential or linear) in fixing the sensing interval | Numerical value
 AdaptationPolicy | Keyword | refers to the definition of adaptation policy | Contains combination of Condition and Adaptation
 Condition | Keyword | refers to the definition of context values | Contains the allowed context values
 then | Keyword | A separator to differentiate context and feature | NA
@@ -33,8 +32,7 @@ AdaptationPolicy 01 {
     } then
     Adaptation {
         SensingInterval = 250 AND
-        Decreasing_Factor = 20 AND
-        BatteryAwareFunction = Linear 
+        Decreasing_Factor = 20
     }
 }
 ```
@@ -65,8 +63,7 @@ AdaptationPolicy 01 {
     } then
     Adaptation {
         SensingInterval = 250 AND
-        Decreasing_Factor = 20 AND
-        BatteryAwareFunction = Linear 
+        Decreasing_Factor = 20 
     }
 }
 ```

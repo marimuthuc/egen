@@ -10,7 +10,6 @@ import org.eclipse.xtext.generator.IGeneratorContext
 import org.adaptiveframework.toolsupport.dsl.AdaptationPolicy
 import org.adaptiveframework.toolsupport.dsl.Decreasing_Factor
 import org.adaptiveframework.toolsupport.dsl.AppState
-import org.adaptiveframework.toolsupport.dsl.BatteryAwareFunction
 import org.adaptiveframework.toolsupport.dsl.SensingInterval
 import org.adaptiveframework.toolsupport.dsl.BatteryLevel
 import org.adaptiveframework.toolsupport.dsl.Threshold_Medium
@@ -304,7 +303,6 @@ class DslGenerator extends AbstractGenerator {
 				        protected int POLICY_NUMBER;
 				        protected FunctionWrap global_wrap;
 				        protected final FunctionWrap LINEAR = () ->   MIN_INTERVAL+(STEP*(100-Long.parseLong(getCurrentBatteryLevel())));
-				        protected final FunctionWrap EXPONENTIAL = () -> MIN_INTERVAL+((long)(Math.exp(STEP))*(100-Long.parseLong(getCurrentBatteryLevel())));
 				        protected boolean runInBackground;
 				        protected long MAGNITUDE = 0;
 				        protected boolean inForeGround = true;
@@ -312,7 +310,6 @@ class DslGenerator extends AbstractGenerator {
 				        protected ArrayList<Integer> Policy_array = new ArrayList<>();
 				        protected ArrayList<String> AppState_array = new ArrayList<>();
 				        protected ArrayList<Integer> StepCount_array = new ArrayList<>();
-				        protected ArrayList<String> BatteryAwareFunction_array = new ArrayList<>();
 				        protected ArrayList<Integer> SensingInterval_array = new ArrayList<>();
 				        protected ArrayList<String> BatteryLevel_array = new ArrayList<>();
 				        protected ArrayList<Integer> Threshold_High_array = new ArrayList<>();
@@ -337,7 +334,6 @@ class DslGenerator extends AbstractGenerator {
 				    +'''".split(", ") ;
 				        String[] arrOfAppStates = "'''+ resource.allContents.filter(AppState).map[value].join(', ')
 				    +'''".split(", ") ;
-				        String[] arrOfBatteryAwareFunctions = "'''+ resource.allContents.filter(BatteryAwareFunction).map[value].join(', ')+'''".split(", ") ;
 				        String[] arrOfSensingIntervals = "'''+ resource.allContents.filter(SensingInterval).map[ivalue].join(', ')+'''".split(", ") ;
 				        String[] arrOfBatteryLevels = "'''+ resource.allContents.filter(BatteryLevel).map[value].join(', ')+'''".split(", ") ;
 				        String[] arrOfMediumThresholds = "'''+ resource.allContents.filter(Threshold_Medium).map[ivalue].join(', ')+'''".split(", ") ;
@@ -348,7 +344,6 @@ class DslGenerator extends AbstractGenerator {
 				        {
 				            setUpIntervalObject.Policy_array.add(Integer.parseInt(arrOfPolicies[i]));
 				            setUpIntervalObject.StepCount_array.add(Integer.parseInt(arrOfStepCounts[i]));
-				            setUpIntervalObject.BatteryAwareFunction_array.add(arrOfBatteryAwareFunctions[i]);
 				            setUpIntervalObject.AppState_array.add(arrOfAppStates[i]);
 				            setUpIntervalObject.SensingInterval_array.add(Integer.parseInt(arrOfSensingIntervals[i]));
 				            setUpIntervalObject.BatteryLevel_array.add(arrOfBatteryLevels[i]);
@@ -391,13 +386,8 @@ class DslGenerator extends AbstractGenerator {
 				                {
 				                    if(AppState.equals(setUpIntervalObject.AppState_array.get(i)))
 				                    {
-				                        if(setUpIntervalObject.BatteryAwareFunction_array.get(i).equals("EXPONENTIAL"))
-				                        {
-				                            setUpIntervalObject.global_wrap = setUpIntervalObject.EXPONENTIAL;
-				                        }
-				                        else{
-				                            setUpIntervalObject.global_wrap = setUpIntervalObject.LINEAR;
-				                        }
+				                        
+				                        setUpIntervalObject.global_wrap = setUpIntervalObject.LINEAR;
 				                        setUpIntervalObject.MIN_INTERVAL = setUpIntervalObject.SensingInterval_array.get(i);
 				                        setUpIntervalObject.STEP = setUpIntervalObject.StepCount_array.get(i);
 				                        setUpIntervalObject.POLICY_NUMBER = setUpIntervalObject.Policy_array.get(i);

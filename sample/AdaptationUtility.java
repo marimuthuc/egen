@@ -22,7 +22,6 @@ protected class Interval
     protected int POLICY_NUMBER;
     protected FunctionWrap global_wrap;
     protected final FunctionWrap LINEAR = () ->   MIN_INTERVAL+(STEP*(100-Long.parseLong(getCurrentBatteryLevel())));
-    protected final FunctionWrap EXPONENTIAL = () -> MIN_INTERVAL+((long)(Math.exp(STEP))*(100-Long.parseLong(getCurrentBatteryLevel())));
     protected boolean runInBackground;
     protected long MAGNITUDE = 0;
     protected boolean inForeGround = true;
@@ -30,7 +29,6 @@ protected class Interval
     protected ArrayList<Integer> Policy_array = new ArrayList<>();
     protected ArrayList<String> AppState_array = new ArrayList<>();
     protected ArrayList<Integer> StepCount_array = new ArrayList<>();
-    protected ArrayList<String> BatteryAwareFunction_array = new ArrayList<>();
     protected ArrayList<Integer> SensingInterval_array = new ArrayList<>();
     protected ArrayList<String> BatteryLevel_array = new ArrayList<>();
     protected ArrayList<Integer> Threshold_High_array = new ArrayList<>();
@@ -52,7 +50,6 @@ protected String setUpLocationService()
     String[] arrOfPolicies = "30, 1".split(", ") ;
 				        String[] arrOfStepCounts = "2, 20".split(", ") ;
 				        String[] arrOfAppStates = "Foreground, Background".split(", ") ;
-				        String[] arrOfBatteryAwareFunctions = "Exponential, Linear".split(", ") ;
 				        String[] arrOfSensingIntervals = "250, 250".split(", ") ;
 				        String[] arrOfBatteryLevels = "High, Low".split(", ") ;
 				        String[] arrOfMediumThresholds = "46, 46".split(", ") ;
@@ -63,7 +60,6 @@ protected String setUpLocationService()
 				        {
 				            setUpIntervalObject.Policy_array.add(Integer.parseInt(arrOfPolicies[i]));
 				            setUpIntervalObject.StepCount_array.add(Integer.parseInt(arrOfStepCounts[i]));
-				            setUpIntervalObject.BatteryAwareFunction_array.add(arrOfBatteryAwareFunctions[i]);
 				            setUpIntervalObject.AppState_array.add(arrOfAppStates[i]);
 				            setUpIntervalObject.SensingInterval_array.add(Integer.parseInt(arrOfSensingIntervals[i]));
 				            setUpIntervalObject.BatteryLevel_array.add(arrOfBatteryLevels[i]);
@@ -106,13 +102,7 @@ protected String setUpLocationService()
 				                {
 				                    if(AppState.equals(setUpIntervalObject.AppState_array.get(i)))
 				                    {
-				                        if(setUpIntervalObject.BatteryAwareFunction_array.get(i).equals("EXPONENTIAL"))
-				                        {
-				                            setUpIntervalObject.global_wrap = setUpIntervalObject.EXPONENTIAL;
-				                        }
-				                        else{
-				                            setUpIntervalObject.global_wrap = setUpIntervalObject.LINEAR;
-				                        }
+				                        setUpIntervalObject.global_wrap = setUpIntervalObject.LINEAR;
 				                        setUpIntervalObject.MIN_INTERVAL = setUpIntervalObject.SensingInterval_array.get(i);
 				                        setUpIntervalObject.STEP = setUpIntervalObject.StepCount_array.get(i);
 				                        setUpIntervalObject.POLICY_NUMBER = setUpIntervalObject.Policy_array.get(i);

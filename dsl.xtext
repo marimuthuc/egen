@@ -15,9 +15,6 @@ Situation3:
     Context = Context 'AND' value=(Situation4)
 ;
 Situation4:
-    Context = Context 'AND' value=(Situation5)
-;
-Situation5:
     Context = Context 'AND' value=(Context)
 ;
 FeatureBlock2:
@@ -27,7 +24,7 @@ Context:
     BatteryState | BatteryLevel | AppState | Threshold_Medium | Threshold_High
 ;
 Features:
-    SensingInterval | Decreasing_Factor | BatteryAwareFunction
+    SensingInterval | Decreasing_Factor
 ;
 BatteryState:
     'BatteryState' '=' value=('Charging' | 'Discharging')
@@ -49,8 +46,5 @@ SensingInterval:
 ;
 Decreasing_Factor:
     'Decreasing_Factor' '=' ivalue=MYINT_T
-;
-BatteryAwareFunction:
-    'BatteryAwareFunction' '=' value=('Exponential' | 'Linear')
 ;
 terminal MYINT_T returns ecore::EInt: '-'?INT;

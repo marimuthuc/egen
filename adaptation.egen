@@ -8,8 +8,7 @@ AppState = Foreground
 } then
 Adaptation {
 SensingInterval = 250 AND
-Decreasing_Factor = 2 AND
-BatteryAwareFunction = Exponential 
+Decreasing_Factor = 2
 }
 }
 AdaptationPolicy 1 {
@@ -22,7 +21,6 @@ AppState = Background
 } then
 Adaptation {
 SensingInterval = 250 AND
-Decreasing_Factor = 20 AND
-BatteryAwareFunction = Linear 
+Decreasing_Factor = 20
 }
 }
