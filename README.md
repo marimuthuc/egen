@@ -69,7 +69,7 @@ AdaptationPolicy 01 {
 ```
 12. Save the file. Java code will be automatically generated
 13. Use it in the existing Android app project
-For more information, visit the video tutorial: https://youtu.be/gkRZ_MEAmn4
+For more information, visit the video tutorial: https://youtu.be/IhMKPHVd_Ls
 
 # How to Contact?
 For more information about the project and support requests, feel free to contact Marimuthu C (cs15fv08.muthu@nitk.edu.in) and Sridhar Chimalakonda (ch@iittp.ac.in). Please open an issue or pull request if you find any bug or have an idea for enhancement. 
