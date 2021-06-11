@@ -7,20 +7,20 @@ Threshold_Medium = 46 AND
 AppState = Foreground 
 } then
 Adaptation {
-SensingInterval = 250 AND
-Decreasing_Factor = 2
+SensingInterval = 2500 AND
+Decreasing_Factor = 20
 }
 }
 AdaptationPolicy 1 {
 Condition {
 BatteryState = Discharging  AND
-BatteryLevel = Low AND
-Threshold_High = 63 AND
-Threshold_Medium = 46 AND
+BatteryLevel = Medium AND
+Threshold_High = 80 AND
+Threshold_Medium = 50 AND
 AppState = Background 
 } then
 Adaptation {
-SensingInterval = 250 AND
-Decreasing_Factor = 20
+SensingInterval = 3000 AND
+Decreasing_Factor = 30
 }
 }

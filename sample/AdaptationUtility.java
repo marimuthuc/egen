@@ -48,12 +48,12 @@ protected void runAppInBackground(boolean flag,long Magnitude)
 protected String setUpLocationService()
 {
     String[] arrOfPolicies = "30, 1".split(", ") ;
-				        String[] arrOfStepCounts = "2, 20".split(", ") ;
+				        String[] arrOfStepCounts = "20, 30".split(", ") ;
 				        String[] arrOfAppStates = "Foreground, Background".split(", ") ;
-				        String[] arrOfSensingIntervals = "250, 250".split(", ") ;
-				        String[] arrOfBatteryLevels = "High, Low".split(", ") ;
-				        String[] arrOfMediumThresholds = "46, 46".split(", ") ;
-				        String[] arrOfHighThresholds = "63, 63".split(", ") ;
+				        String[] arrOfSensingIntervals = "2500, 3000".split(", ") ;
+				        String[] arrOfBatteryLevels = "High, Medium".split(", ") ;
+				        String[] arrOfMediumThresholds = "46, 80".split(", ") ;
+				        String[] arrOfHighThresholds = "63, 50".split(", ") ;
 				        String[] arrOfBatteryStates = "Charging, Discharging".split(", ") ;
 				    
 				        for(int i=0;i<arrOfPolicies.length;i++)
