@@ -1,26 +1,26 @@
-AdaptationPolicy 30 {
+AdaptationPolicy 01 {
 Condition {
-BatteryState = Charging  AND
+BatteryState = Discharging  AND
 BatteryLevel = High AND
-Threshold_High = 63 AND
-Threshold_Medium = 46 AND
+Threshold_High = 80 AND
+Threshold_Medium = 50 AND
 AppState = Foreground 
 } then
 Adaptation {
-SensingInterval = 2500 AND
-Decreasing_Factor = 20
+SensingInterval = 3000 AND
+Decreasing_Factor = 10
 }
 }
-AdaptationPolicy 1 {
+AdaptationPolicy 02 {
 Condition {
 BatteryState = Discharging  AND
-BatteryLevel = Medium AND
+BatteryLevel = Low AND
 Threshold_High = 80 AND
 Threshold_Medium = 50 AND
 AppState = Background 
 } then
 Adaptation {
-SensingInterval = 3000 AND
+SensingInterval = 4000 AND
 Decreasing_Factor = 30
 }
 }
