@@ -1,6 +1,6 @@
 /* 
  * Use the entire code along with lines from 10 to 33 and 690 to 691 if you follow the names we specified during Xtext project creation in the demo video
- * In the other case, code from the lines from 689 to  can be taken directly
+ * In the other case, code from the lines from 689 to 691 can be taken directly
 */
 
 
