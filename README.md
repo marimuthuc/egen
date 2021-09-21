@@ -39,10 +39,11 @@ AdaptationPolicy 01 {
 }
 ```
 # How to Use?
-## Watch the [first](https://youtu.be/Pp8I-Jsc3kI) youtube video to do the following:
+## We have uploaded instructional videos on youtube.
+## Please watch the [first](https://youtu.be/Pp8I-Jsc3kI) youtube video to do the following:
 ###     Download the latest [Eclipse IDE Installer](https://www.eclipse.org/downloads/) 
 ###     Download the [Java JDK 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
-## Watch the [second](https://youtu.be/RrPCjtK3UIc) youtube video to do the following:
+## Please watch the [second](https://youtu.be/RrPCjtK3UIc) youtube video to do the following:
 ### Installation and Setup 
     > Install the IDE for DSL developers
     > Create a Xtext Project
