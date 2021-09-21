@@ -39,15 +39,15 @@ AdaptationPolicy 01 {
 }
 ```
 # How to Use?
-## Watch the first video to do the following:
+## Watch the [first](https://youtu.be/Pp8I-Jsc3kI) youtube video to do the following:
 ###     Download the latest [Eclipse IDE Installer](https://www.eclipse.org/downloads/) 
 ###     Download the [Java JDK 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
-## Watch the second video to do the following:
+## Watch the [second](https://youtu.be/RrPCjtK3UIc) youtube video to do the following:
 ### Installation and Setup 
     > Install the IDE for DSL developers
     > Create a Xtext Project
     > Write DSL grammar 
-    > Write the necessary Xtext code
+    > Write the necessary Xtend code
 ### Use the framework to generate code
     > Launch Eclipse Application to test the framework
     > Create a sample project
