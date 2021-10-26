@@ -55,6 +55,28 @@ AdaptationPolicy 01 {
     > Write a sample adaptation policy 
     > Generate Java templates containing code for self-adaptive location-sensing 
 
+# eGEN API Usage
+## Setup
+[Gradle 7.0.2](https://docs.gradle.org/7.0.2/release-notes.html) or higher is required.
+### Step1: In the root build.gradle add the below code at the end of repositories:
+```
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+### Step2: Add the dependency:
+```
+dependencies {
+	        implementation 'com.github.Kowndinya2000:Battery-Aware-API:1.0.2'
+	}
+```
+### Step3: Call the API functions in your source code by extending the ````AdaptationActivity````:
+```
+
+```
 # How to Contact?
 For more information about the project and support requests, feel free to contact Marimuthu C (cs15fv08.muthu@nitk.edu.in) and Sridhar Chimalakonda (ch@iittp.ac.in). Please open an issue or pull request if you find any bug or have an idea for enhancement. 
 
