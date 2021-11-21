@@ -55,28 +55,65 @@ AdaptationPolicy 01 {
     > Write a sample adaptation policy 
     > Generate Java templates containing code for self-adaptive location-sensing 
 
-# eGEN API Usage
-## Setup
-[Gradle 7.0.2](https://docs.gradle.org/7.0.2/release-notes.html) or higher is required.
-### Step1: In the root build.gradle add the below code at the end of repositories:
+# Exact Adaptation Policy Instrumented for Subject Applications
+```sh
+AdaptationPolicy 01 {
+    Condition {
+        BatteryState = Discharging  AND
+        BatteryLevel =  High AND
+        Threshold_High = 80 AND
+        Threshold_Medium = 50 AND
+        AppState = Foreground 
+    } then
+    Adaptation {
+        SensingInterval = 3000 AND
+        Decreasing_Factor = 10 AND
+        BatteryAwareFunction = Linear 
+    }
+}
+AdaptationPolicy 02 {
+    Condition {
+        BatteryState = Discharging  AND
+        BatteryLevel =  Medium AND
+        Threshold_High = 80 AND
+        Threshold_Medium = 50 AND
+        AppState = Foreground 
+    } then
+    Adaptation {
+        SensingInterval = 4000 AND
+        Decreasing_Factor = 20 AND
+        BatteryAwareFunction = Linear 
+    }
+}
+AdaptationPolicy 03 {
+    Condition {
+        BatteryState = Discharging  AND
+        BatteryLevel =  Low AND
+        Threshold_High = 80 AND
+        Threshold_Medium = 50 AND
+        AppState = Foreground 
+    } then
+    Adaptation {
+        SensingInterval = 5000 AND
+        Decreasing_Factor = 30 AND
+        BatteryAwareFunction = Linear 
+    }
+}
 ```
-allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
-	}
+## Design rationale behind the Adaptation Policies
 ```
-### Step2: Add the dependency:
-```
-dependencies {
-	        implementation 'com.github.Kowndinya2000:Battery-Aware-API:1.0.2'
-	}
-```
-### Step3: Call the API functions in your source code by extending the ````AdaptationActivity````:
-```
+Android device at any instant of time can be subjected to the following exhaustive list of cases: 
+    
+    Case1: Battery is discharging and the subject application is in the foreground
+    Case2: Battery is discharging and the subject application is in the background
+    Case3: Battery is charging and the subject application is in the foreground
+    Case4: Battery is charging and the subject application is in the background 
 
+When the device is subjected to experimentation, the maximum battery consumption can be found in Case1 followed by Case2, 3 and 4. The subject application trails were executed when the battery is discharging and the application is in the foreground (Case1). A GPS sensing interval of 1 or 2 seconds helps in producing accurate distance measurement, and increasing the value to more than 10 seconds worsens the accuracy of the distance measurement for the length of the track we considered (3km), hence for the non-eGEN version of the subject application we have decided to set sensing interval to 5 seconds that can help in achieving decent accuracy. For eGEN versions of subject applications, We have designed simple adaptation policies that tend to reduce the battery consumption as the battery level decreases, hence when the battery is high (greater than 80\%) the defined adaptation policy focuses more on producing accurate location than saving battery and this trend reverses as battery transitions to lower levels. The sensing interval behavior with respect to battery level of the device is plotted in the below figure. Since, we are confining to a GPS relaxation time of 5 sec (for non-eGEN) to not compromise on location accuracy, we decided to draft the adaptation policies such that the varying sensing interval values when averaged for all the battery levels from zero to hundred would be close to 5000ms. The average sensing interval as calculated is 5666ms and we have shown in the below sections that savings have been reported through adaptation policies defined without losing the much of location accuracy when compared to Non-eGEN version.     
 ```
+## Sensing interval impacted by the change in battery level
+![Sensing Interval Behavior based on the chosen Adaptation Policies](https://github.com/marimuthuc/egen/blob/main/chart.png)
+
 # How to Contact?
 For more information about the project and support requests, feel free to contact Marimuthu C (cs15fv08.muthu@nitk.edu.in) and Sridhar Chimalakonda (ch@iittp.ac.in). Please open an issue or pull request if you find any bug or have an idea for enhancement. 
 
