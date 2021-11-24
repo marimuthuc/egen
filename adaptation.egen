@@ -8,7 +8,8 @@ AppState = Foreground
 } then
 Adaptation {
 SensingInterval = 3000 AND
-Decreasing_Factor = 10
+Decreasing_Factor = 10 AND
+BatteryAwareFunction = Linear
 }
 }
 AdaptationPolicy 02 {
@@ -21,6 +22,7 @@ AppState = Background
 } then
 Adaptation {
 SensingInterval = 4000 AND
-Decreasing_Factor = 30
+Decreasing_Factor = 30 AND
+BatteryAwareFunction = Linear
 }
 }
